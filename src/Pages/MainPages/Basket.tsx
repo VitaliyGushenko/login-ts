@@ -5,6 +5,7 @@ import Product from '../../components/MainPage/Products/Product';
 import { IProduct } from '../../interfaces/store/basketAndProduct/IProduct';
 import { IStore } from '../../interfaces/store/IStore';
 import { IUserInfoData } from '../../interfaces/store/user/IStoreUserInfoData';
+import './../Pages.css';
 
 import { Layout } from 'antd';
 
@@ -38,21 +39,14 @@ const Basket = ({ name, uid }: IUserInfoData) => {
 
   return (
     <div>
-      <Content style={{ margin: '24px 16px 0', padding: '0 30% 0 30%' }}>
-        <div
-          className="site-layout-background"
-          style={{ padding: 24, minHeight: 850, textAlign: 'center' }}
-        >
+      <Content className="contentStyleBasket">
+        <div className="site-layout-background">
           {loading || !check ? (
             <p>{!error ? 'Loading...' : 'Error, try again'}</p>
           ) : (
             <div>
               <h3>Basket {name}</h3>
-              <div
-                style={{
-                  textAlign: 'left',
-                }}
-              >
+              <div className="contentStyleListProducts">
                 {listBroductProducts}
               </div>
             </div>

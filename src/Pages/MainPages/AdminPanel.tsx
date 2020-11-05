@@ -4,6 +4,7 @@ import { fetchAllUsers } from '../../redux/actions/user/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { IStore } from '../../interfaces/store/IStore';
 import { IUserInfoData } from '../../interfaces/store/user/IStoreUserInfoData';
+import './../Pages.css';
 
 import { Layout } from 'antd';
 
@@ -37,33 +38,14 @@ const AdminPanel = () => {
 
   return (
     <div>
-      <Content style={{ margin: '24px 16px 0', padding: '0 40% 0 30%' }}>
-        <div
-          className="site-layout-background"
-          style={{
-            padding: 24,
-            minHeight: 850,
-            textAlign: 'center',
-            paddingRight: 50,
-            paddingLeft: 50,
-          }}
-        >
+      <Content className="contentStyleAdminPanel">
+        <div className="site-layout-background">
           {loading || !check ? (
             <p>{!error ? 'Loading...' : 'Error, try again'}</p>
           ) : (
-            <div
-              style={{
-                width: '500px',
-              }}
-            >
+            <div className="styleWidth">
               <h2>List users</h2>
-              <div
-                style={{
-                  textAlign: 'left',
-                }}
-              >
-                {usersShow}
-              </div>
+              <div className="contentStyleListProducts">{usersShow}</div>
             </div>
           )}
         </div>

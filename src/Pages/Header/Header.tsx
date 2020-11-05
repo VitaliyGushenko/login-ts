@@ -28,10 +28,7 @@ function MyHeader({ name, cash }: IUserInfoData) {
           {name}
           {
             <NavLink to="/login">
-              <Button
-                onClick={logout}
-                style={{ marginRight: '10px', marginLeft: '10px' }}
-              >
+              <Button onClick={logout} className="logoutBtn">
                 Logout
               </Button>
             </NavLink>

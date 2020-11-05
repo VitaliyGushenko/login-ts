@@ -9,6 +9,8 @@ import {
 } from '../../../redux/actions/basket/actions';
 import { fetchDeleteProducts } from '../../../redux/actions/product/actions';
 
+import './../../../Pages/Pages.css';
+
 const Product = ({ productInfo, basket }: IProductInfo) => {
   const dispatch = useDispatch();
 
@@ -50,7 +52,7 @@ const Product = ({ productInfo, basket }: IProductInfo) => {
   const buyBtn = <Button onClick={buyProductCallback}>Add</Button>;
   const adminBtnDelete =
     productInfo.userRole === 'Admin' && !basket ? (
-      <Button onClick={deleteProductCallback} style={{ marginLeft: '20px' }}>
+      <Button onClick={deleteProductCallback} className="deleteBtnProduct">
         Delete
       </Button>
     ) : (
@@ -64,22 +66,9 @@ const Product = ({ productInfo, basket }: IProductInfo) => {
   );
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        width: '100%',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        paddingBottom: '10px',
-        paddingTop: '10px',
-        borderBottom: '1px solid black',
-        marginBottom: '10px',
-      }}
-    >
+    <div className="productContent">
       {nameProduct}: price: {price}, count: {count}
-      <div
-        style={{ textAlign: 'right', display: 'flex', flexDirection: 'row' }}
-      >
+      <div className="productBtn">
         {!basket ? (count !== 0 ? buyBtn : ' Products are sold out ') : ''}
         {btnDeleteBasketProduct}
         {adminBtnDelete}

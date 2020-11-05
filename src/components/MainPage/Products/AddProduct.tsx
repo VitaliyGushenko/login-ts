@@ -4,6 +4,8 @@ import { fetchAddProduct } from '../../../redux/actions/product/actions';
 import { useDispatch } from 'react-redux';
 import { IUserInfoData } from '../../../interfaces/store/user/IStoreUserInfoData';
 
+import './../../../Pages/Pages.css';
+
 const layout = {
   labelCol: { span: 8 },
   wrapperCol: { span: 7 },
@@ -71,7 +73,7 @@ const AddProduct = ({ name, uid }: IUserInfoData) => {
       </Form.Item>
 
       <Form.Item
-        style={{ marginLeft: 180 }}
+        className="marginLeft"
         label="NameOrganization"
         name="nameOrganization"
         rules={[{ required: true, message: 'Please input your username!' }]}
@@ -83,7 +85,7 @@ const AddProduct = ({ name, uid }: IUserInfoData) => {
         />
       </Form.Item>
       <Form.Item
-        style={{ marginLeft: 180 }}
+        className="marginLeft"
         label="NameProduct"
         name="NameProduct"
         rules={[{ required: true, message: 'Please input your username!' }]}
@@ -96,7 +98,7 @@ const AddProduct = ({ name, uid }: IUserInfoData) => {
       </Form.Item>
 
       <Form.Item
-        style={{ marginLeft: 180 }}
+        className="marginLeft"
         label="Price"
         name="Price"
         rules={[{ required: true, message: 'Please input your username!' }]}
@@ -105,7 +107,7 @@ const AddProduct = ({ name, uid }: IUserInfoData) => {
       </Form.Item>
 
       <Form.Item
-        style={{ marginLeft: 180 }}
+        className="marginLeft"
         label="Count"
         name="Count"
         rules={[{ required: true, message: 'Please input your username!' }]}
