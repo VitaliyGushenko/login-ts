@@ -30,7 +30,6 @@ import * as serviceWorker from './serviceWorker';
 
 const sagaMeddleware = createSagaMiddleware();
 export const store = createStore(rootReducer, applyMiddleware(sagaMeddleware));
-console.log(store);
 sagaMeddleware.run(watchFetchRegisterUser);
 sagaMeddleware.run(watchFetchLoginUser);
 sagaMeddleware.run(watchFetchUser);

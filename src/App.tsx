@@ -20,8 +20,6 @@ function App() {
     authListener();
   }, []);
 
-  console.log('USER ', user);
-
   return (
     <BrowserRouter>
       <div>

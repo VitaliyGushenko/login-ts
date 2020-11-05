@@ -60,7 +60,6 @@ export const deleteUser = (uid: string) => {
     .collection('products')
     .get()
     .then((querySnapshot) => {
-      console.log(querySnapshot);
       querySnapshot.forEach((doc) => {
         console.log(doc.data());
         if (doc.data().userUid === uid) dataProducts.push(doc.data());
@@ -75,15 +74,10 @@ export const deleteUser = (uid: string) => {
     .collection('basket')
     .get()
     .then((querySnapshot) => {
-      console.log(querySnapshot);
       querySnapshot.forEach((doc) => {
-        console.log(doc.data());
-
         dataProducts.forEach((data) => {
           if (doc.data()[data.key]) {
             const cityRef = firestore.collection('basket').doc(doc.id);
-            console.log(doc.data()[data.key].userUid);
-            console.log(data.key);
             return cityRef.update({
               [data.key]: firebase.firestore.FieldValue.delete(),
             });
@@ -166,11 +160,8 @@ export const deleteProduct = (uid: string) => {
     .then((querySnapshot) => {
       console.log(querySnapshot);
       querySnapshot.forEach((doc) => {
-        console.log(doc.data());
         if (doc.data()[uid]) {
           const cityRef = firestore.collection('basket').doc(doc.id);
-          console.log(doc.data()[uid].userUid);
-          console.log(uid);
           return cityRef.update({
             [uid]: firebase.firestore.FieldValue.delete(),
           });

@@ -54,7 +54,6 @@ export function* watchFetchProducts() {
 }
 
 function* fetchAsyncProducts() {
-  console.log('GET PRODUCT');
   try {
     yield put(requestProducts());
     const data = yield call(() => {
