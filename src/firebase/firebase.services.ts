@@ -160,7 +160,23 @@ export const getProducts = () => {
 };
 
 export const deleteProduct = (uid: string) => {
-  console.log(uid);
+  firestore
+    .collection('basket')
+    .get()
+    .then((querySnapshot) => {
+      console.log(querySnapshot);
+      querySnapshot.forEach((doc) => {
+        console.log(doc.data());
+        if (doc.data()[uid]) {
+          const cityRef = firestore.collection('basket').doc(doc.id);
+          console.log(doc.data()[uid].userUid);
+          console.log(uid);
+          return cityRef.update({
+            [uid]: firebase.firestore.FieldValue.delete(),
+          });
+        }
+      });
+    });
   return firestore.collection('products').doc(uid).delete();
 };
 
